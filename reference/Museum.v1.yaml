@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: Museum
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /art:
+    get:
+      summary: Get some art
+      tags:
+        - Art
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    artist:
+                      type: string
+                    id:
+                      type: integer
+                    date:
+                      type: string
+                      format: date
+                  required:
+                    - name
+                    - artist
+                    - id
+                    - date
+      operationId: get-art
+components:
+  schemas: {}
+tags:
+  - name: Art
